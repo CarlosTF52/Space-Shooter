@@ -18,9 +18,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(new Vector3(1, 0, 0) * horizontalInput * _speed * Time.deltaTime);
-        transform.Translate(new Vector3(0, 1, 0) * verticalInput * _speed * Time.deltaTime);
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+        transform.Translate(direction * _speed * Time.deltaTime);
+
+        //move player to the bottom if position is greater than 0 in the y position
+        if(transform.position.y >= 0)
+        {
+            transform.position = new Vector3(transform.position.x, 0 ,0);
+        }
+        else if(transform.position.y <= -3.8f)
+        {
+            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+        }
+
+        //teleport player to the other side of the screen if he moves past 12 in x
+        if(transform.position.x >= 12)
+        {
+            transform.position = new Vector3(-11, transform.position.y, 0);
+        }
+        else if(transform.position.x <= -12)
+        {
+            transform.position = new Vector3(11, transform.position.y, 0);
+        }        
     }
+
 }
