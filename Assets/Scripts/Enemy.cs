@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(Random.Range(-9, 9), 5.55f, 0);
+        
     }
 
     // Update is called once per frame
@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
     {
 
         //move down at 4 meters per second, rendom respawn at top if gone past bottom of screen 
-        Vector3 direction = new Vector3(0, -1, 0);
-        transform.Translate(direction * _enemySpeed * Time.deltaTime);
+        
+        transform.Translate(Vector3.down * _enemySpeed * Time.deltaTime);
 
         if(transform.position.y < -4.2f)
         {

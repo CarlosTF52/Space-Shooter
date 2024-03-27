@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator coroutine;
     [SerializeField]
     private GameObject _enemyPrefab;
-    Vector3 randomSpawn;
+    private Vector3 randomSpawn;
     [SerializeField]
     private GameObject _enemyContainer;
     private bool _stopSpawning = false;

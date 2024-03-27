@@ -10,20 +10,30 @@ public class Player : MonoBehaviour
     private float _speed = 3.5f;
     [SerializeField]
     private GameObject _laserPrefab;
-    Vector3 _laserOffset;
+    [SerializeField]
+    private GameObject _tipleShotPrefab;
+    private Vector3 _laserOffset;
+    private Vector3 _tripleShotOffset;
 
     [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1.0f;
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
+    public bool _tripleShotEnabled;
+    private IEnumerator coroutine;
 
     private SpawnManager _spawnManager;
+    
 
     void Start()
     {
+        coroutine = PowerDownRoutine(5.0f);
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        
+
         
         if(_spawnManager == null)
         {
@@ -43,6 +53,8 @@ public class Player : MonoBehaviour
 
     }
 
+    
+
     void CalculateMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -61,21 +73,32 @@ public class Player : MonoBehaviour
         }
 
         //teleport player to the other side of the screen if he moves past 12 in x
-        if(transform.position.x >= 12)
+        if(transform.position.x >= 9)
         {
-            transform.position = new Vector3(-11, transform.position.y, 0);
+            transform.position = new Vector3(-9, transform.position.y, 0);
         }
-        else if(transform.position.x <= -12)
+        else if(transform.position.x <= -9)
         {
-            transform.position = new Vector3(11, transform.position.y, 0);
+            transform.position = new Vector3(9, transform.position.y, 0);
         }        
     }
 
-    void FireLaser()
+    public void FireLaser()
     {      
             _canFire = Time.time + _fireRate;
+
             _laserOffset = new Vector3(transform.position.x ,transform.position.y + 1.05f , transform.position.z);
+            
+
+            if(_tripleShotEnabled == true)
+            {
+                _tripleShotOffset = new Vector3(transform.position.x + 0.25f, transform.position.y + 0.5f, transform.position.z);
+                Instantiate(_tipleShotPrefab, _tripleShotOffset, Quaternion.identity);
+            }
+            else 
+
             Instantiate(_laserPrefab, _laserOffset, Quaternion.identity);
+
     }
 
     public void Damage()
@@ -91,5 +114,22 @@ public class Player : MonoBehaviour
 
     }
 
+    public void TripleShotActive()
+    {
+        _tripleShotEnabled = true;
+        
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator PowerDownRoutine(float powerTime)
+    {
+        //while loop, instantiate enemy prefab, yield wait for 5 seconds
+        while(_tripleShotEnabled == true)
+        {
+            yield return new WaitForSeconds(powerTime);
+            _tripleShotEnabled = false;
+            
+        }
+    }
 
 }
