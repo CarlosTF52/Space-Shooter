@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField]
-    private float _speed = 3.5f;
-    [SerializeField]
-    private GameObject _laserPrefab;
+    private float _speed = 5.0f;
+
+    private float _speedUpMultipler = 2;
+    
     [SerializeField]
     private GameObject _tipleShotPrefab;
     private Vector3 _laserOffset;
@@ -21,24 +22,39 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     [SerializeField]
-    public bool _tripleShotEnabled;
+    private GameObject _laserPrefab;
+    [SerializeField]
+    private GameObject _shieldsVisualizer;
+    private bool _tripleShotEnabled;
+    private bool _speedUpEnabled;
+    private bool _shieldsEnabled;
     private IEnumerator coroutine;
+    [SerializeField]
+    private int _score;
+
+    private UIManager _uiManager;
 
     private SpawnManager _spawnManager;
     
 
     void Start()
     {
-        coroutine = PowerDownRoutine(5.0f);
+      
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
-        
+         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         
         if(_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is Null");
         }
+
+        if(_uiManager == null)
+        {
+            Debug.LogError("The UI Manager is Null");
+        }
+
     }
 
  
@@ -103,7 +119,16 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        //if shield is active, do nothing, deactivate shields
+        if(_shieldsEnabled == true)
+        {
+            _shieldsEnabled = false;
+            _shieldsVisualizer.SetActive(false);
+            return;
+            
+        }
         _lives--;
+        _uiManager.UpdateLives(_lives);
 
         if(_lives < 1)
         {
@@ -117,19 +142,44 @@ public class Player : MonoBehaviour
     public void TripleShotActive()
     {
         _tripleShotEnabled = true;
-        
-        StartCoroutine(coroutine);
+
+        StartCoroutine(PowerDownRoutine());
     }
 
-    private IEnumerator PowerDownRoutine(float powerTime)
+    public void SpeedUpActive()
     {
-        //while loop, instantiate enemy prefab, yield wait for 5 seconds
-        while(_tripleShotEnabled == true)
-        {
-            yield return new WaitForSeconds(powerTime);
+    
+        _speed = _speed * _speedUpMultipler;
+        _speedUpEnabled = true;
+
+        StartCoroutine(PowerDownRoutine());
+    }
+
+    public void ShieldsActive()
+    {
+        _shieldsEnabled = true;
+        _shieldsVisualizer.SetActive(true);
+    }
+
+    private IEnumerator PowerDownRoutine()
+    {
+            yield return new WaitForSeconds(5.0f);
             _tripleShotEnabled = false;
+            if(_speedUpEnabled)
+            {
+                _speed = _speed / _speedUpMultipler;
+                _speedUpEnabled = false;    
+            }
             
-        }
+           
+    }
+
+    //method to add 10  to score, communicate with UI to update score
+    public void ScoreCount(int points)
+    {
+        _score = _score + points;
+        _uiManager.UpdateScore(_score);
+
     }
 
 }
