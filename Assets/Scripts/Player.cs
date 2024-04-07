@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -35,14 +35,32 @@ public class Player : MonoBehaviour
     private UIManager _uiManager;
 
     private SpawnManager _spawnManager;
-    
+
+    private GameManager _gameManager;
+
+    [SerializeField]
+    private GameObject _rightEngine;
+
+    [SerializeField]
+    private GameObject _leftEngine;
+
+    [SerializeField]
+    AudioSource _laserAudioSource;
+
+     [SerializeField]
+    AudioSource _playerExplosionAudioSource;
+
+
+ 
 
     void Start()
     {
       
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
-         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        
 
         
         if(_spawnManager == null)
@@ -53,6 +71,11 @@ public class Player : MonoBehaviour
         if(_uiManager == null)
         {
             Debug.LogError("The UI Manager is Null");
+        }
+
+        if(_gameManager == null)
+        {
+            Debug.LogError("The Game Manager is Null");
         }
 
     }
@@ -66,6 +89,11 @@ public class Player : MonoBehaviour
         {
             FireLaser();
         }
+
+        if(Input.GetKeyDown(KeyCode.R) && _lives < 1)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            } 
 
     }
 
@@ -112,8 +140,13 @@ public class Player : MonoBehaviour
                 Instantiate(_tipleShotPrefab, _tripleShotOffset, Quaternion.identity);
             }
             else 
-
+            {
             Instantiate(_laserPrefab, _laserOffset, Quaternion.identity);
+            }
+
+            //play audio clip, create variable for audio clip
+            _laserAudioSource.Play();
+
 
     }
 
@@ -130,19 +163,38 @@ public class Player : MonoBehaviour
         _lives--;
         _uiManager.UpdateLives(_lives);
 
-        if(_lives < 1)
+        switch(_lives)
         {
-            _spawnManager.OnPlayerDeath();
-           
-            Destroy(this.gameObject);
+            case 0:
+                 ResetGame();
+                 break;
+            
+            case 1:
+                _leftEngine.SetActive(true);
+                break;
+            
+            case 2:
+                _rightEngine.SetActive(true);
+                break;
+
         }
 
     }
 
+    void ResetGame()
+    {
+        _spawnManager.OnPlayerDeath();
+        _uiManager.GameOver();
+        Destroy(this.gameObject);
+        _gameManager.GameOver();
+        _playerExplosionAudioSource.Play();
+        
+
+    }
     public void TripleShotActive()
     {
         _tripleShotEnabled = true;
-
+        
         StartCoroutine(PowerDownRoutine());
     }
 
@@ -151,6 +203,7 @@ public class Player : MonoBehaviour
     
         _speed = _speed * _speedUpMultipler;
         _speedUpEnabled = true;
+        
 
         StartCoroutine(PowerDownRoutine());
     }
@@ -158,6 +211,7 @@ public class Player : MonoBehaviour
     public void ShieldsActive()
     {
         _shieldsEnabled = true;
+       
         _shieldsVisualizer.SetActive(true);
     }
 

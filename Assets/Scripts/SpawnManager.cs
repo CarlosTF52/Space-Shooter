@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -26,13 +27,18 @@ public class SpawnManager : MonoBehaviour
     {
         _enemyCoroutine = SpawnEnemyRoutine(1.0f);
         _powerupCoroutine = SpawnPowerupRoutine();
+        
+    }
+
+    public void StartSpawning()
+    {
         StartCoroutine(_enemyCoroutine);
         StartCoroutine(_powerupCoroutine);
     }
 
     private IEnumerator SpawnEnemyRoutine(float waitTime)
     {
-        //while loop, instantiate enemy prefab, yield wait for 5 seconds
+        yield return new WaitForSeconds(3.0f);
         while(_stopSpawning == false)
         {
             
@@ -45,6 +51,7 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator SpawnPowerupRoutine()
     {
+        yield return new WaitForSeconds(3.0f);
         while(_stopSpawning == false)
         {
             Vector3 posToSpawn = new Vector3(Random.Range(-8f, 8f), 7, 0); //set spawn position
