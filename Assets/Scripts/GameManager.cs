@@ -14,10 +14,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
-        if (Input.GetKey("escape"))
+        if (Input.GetKeyDown(KeyCode.Escape)) //use Get Key Down with key code
         {
             Application.Quit();
         }
+
+
     }
 
     public void GameOver()

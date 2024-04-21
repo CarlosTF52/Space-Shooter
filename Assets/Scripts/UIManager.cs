@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -19,16 +20,37 @@ public class UIManager : MonoBehaviour
     private Sprite[] _liveSprites;
 
     [SerializeField]
-    private Image _livesImage; 
+    private Image _livesImage;
+
+    [SerializeField]
+    private Text _ammoText;
+
+    [SerializeField]
+    private Image _thrustersbar;
+
+
+    [SerializeField]
+    private float _thrusterMaxAmount, _thrusterAmount;
+
+    [SerializeField]
+    private bool _refreshThrusterAmount;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+     
         //assign text component to handle
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _scoreText.text =  "Score: " + 0.0f ;
+        _ammoText.text = "Ammo: " + 15;
+      
+        
     }
+
+
 
     
     public void GameOver()
@@ -47,6 +69,38 @@ public class UIManager : MonoBehaviour
     public void UpdateLives(int currentLives)
     {
         _livesImage.sprite = _liveSprites[currentLives];
+    }
+
+    public void UpdateAmmo(int playerammo)
+    {
+        _ammoText.text = "Ammo: " + playerammo.ToString();
+    }
+
+    public void UpdateThrusters(float playerthrusters)
+    {
+      
+
+        _thrusterAmount -= playerthrusters * Time.deltaTime;
+
+        if (_thrusterAmount < 0 && _refreshThrusterAmount == false)
+        {
+            _thrusterAmount = 0;
+            _refreshThrusterAmount = true;
+            
+
+        }
+        
+
+        if (_refreshThrusterAmount == true)
+        {
+            _thrusterAmount = 25f;
+            _thrustersbar.fillAmount = _thrusterAmount;
+            _refreshThrusterAmount = false;
+           
+        }
+
+        _thrustersbar.fillAmount = _thrusterAmount / _thrusterMaxAmount;
+
     }
 
     IEnumerator GameOverFlicker()

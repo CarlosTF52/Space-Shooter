@@ -31,7 +31,7 @@ public class Laser : MonoBehaviour
     {
         transform.Translate(Vector3.up * _laserSpeed * Time.deltaTime);
 
-        if(transform.position.y > 8.0f)
+        if(transform.position.y > 8f)
         {
 
                 if(transform.parent != null)
@@ -47,7 +47,7 @@ public class Laser : MonoBehaviour
     {
         transform.Translate(Vector3.down * _laserSpeed * Time.deltaTime);
 
-        if(transform.position.y > 8.0f)
+        if(transform.position.y < -5.0f)
         {
 
                 if(transform.parent != null)
@@ -61,6 +61,7 @@ public class Laser : MonoBehaviour
 
     public void AssignEnemy()
     {
+        
         _isEnemyLaser = true;
     }
 
@@ -72,8 +73,12 @@ public class Laser : MonoBehaviour
             
             if(player != null)
             {
-                player.Damage();
+                player.Damage(); //destroy laser
+                Destroy(this.gameObject);
             }
         }
+
     }
+
+
 }

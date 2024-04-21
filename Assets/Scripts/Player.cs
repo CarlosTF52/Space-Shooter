@@ -10,25 +10,50 @@ public class Player : MonoBehaviour
     private float _speed = 5.0f;
 
     private float _speedUpMultipler = 2;
-    
+
     [SerializeField]
     private GameObject _tipleShotPrefab;
+
+    [SerializeField]
+    private GameObject _missilesPrefab;
+
     private Vector3 _laserOffset;
     private Vector3 _tripleShotOffset;
+    private Vector3 _missilesOffset;
 
     [SerializeField]
     private float _fireRate = 0.5f;
+
     private float _canFire = -1.0f;
+
     [SerializeField]
     private int _lives = 3;
+
     [SerializeField]
     private GameObject _laserPrefab;
+
     [SerializeField]
-    private GameObject _shieldsVisualizer;
+    private GameObject _fullShieldsVisualizer;
+
+    [SerializeField]
+    private GameObject _medShieldsVisualizer;
+
+    [SerializeField]
+    private GameObject _lowShieldsVisualizer;
+
     private bool _tripleShotEnabled;
+
+    [SerializeField]
     private bool _speedUpEnabled;
-    private bool _shieldsEnabled;
-    private IEnumerator coroutine;
+
+    [SerializeField]
+    private bool _missilesEnabled;
+
+    [SerializeField]
+    private int _shieldPower;
+
+    private int _ammo = 15;
+
     [SerializeField]
     private int _score;
 
@@ -47,23 +72,40 @@ public class Player : MonoBehaviour
     [SerializeField]
     AudioSource _laserAudioSource;
 
-     [SerializeField]
+    [SerializeField]
+    AudioSource _missileAudioSource;
+
+    [SerializeField]
     AudioSource _playerExplosionAudioSource;
 
+    [SerializeField]
+    private GameObject _thrusterPrefab;
 
- 
+    private Vector3 _thrusterScale;
+    private Vector3 _thrusterOffset;
+
+    private float _thrustersTime;
+
+    [SerializeField]
+    private float _speedUpDuration;
+
+    [SerializeField]
+    private CameraControl _cameraControl;
+
 
     void Start()
     {
-      
+        _thrusterScale = new Vector3(1, 1, 1);
+        _thrusterOffset = new Vector3(0, -0.5f, 0);
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         
 
-        
-        if(_spawnManager == null)
+
+
+        if (_spawnManager == null)
         {
             Debug.LogError("The Spawn Manager is Null");
         }
@@ -85,12 +127,24 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        if (_lives > 3)
         {
-            FireLaser();
+            _lives = 3;
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && _lives < 1)
+        if(_speedUpEnabled)
+        {
+            ThrustersTimerDown(_thrustersTime);
+            _uiManager.UpdateThrusters(_thrustersTime);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire && _ammo > 0)
+        {
+            FireLaser();
+           
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && _lives < 1) //should be on game manager
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             } 
@@ -101,9 +155,29 @@ public class Player : MonoBehaviour
 
     void CalculateMovement()
     {
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _speed = _speed * _speedUpMultipler;
+            
+            _thrusterPrefab.transform.localScale += _thrusterScale;
+            _thrusterPrefab.transform.position += _thrusterOffset;
+
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _speed = _speed / _speedUpMultipler;
+           
+            _thrusterPrefab.transform.localScale -= _thrusterScale;
+            _thrusterPrefab.transform.position -= _thrusterOffset;
+        }
+
+
         transform.Translate(direction * _speed * Time.deltaTime);
 
         //move player to the bottom if position is greater than 0 in the y position
@@ -127,43 +201,84 @@ public class Player : MonoBehaviour
         }        
     }
 
+
     public void FireLaser()
-    {      
+    {     
+            
             _canFire = Time.time + _fireRate;
 
             _laserOffset = new Vector3(transform.position.x ,transform.position.y + 1.05f , transform.position.z);
-            
 
-            if(_tripleShotEnabled == true)
-            {
-                _tripleShotOffset = new Vector3(transform.position.x + 0.25f, transform.position.y + 0.5f, transform.position.z);
-                Instantiate(_tipleShotPrefab, _tripleShotOffset, Quaternion.identity);
-            }
-            else 
-            {
-            Instantiate(_laserPrefab, _laserOffset, Quaternion.identity);
-            }
+            _ammo--;
 
-            //play audio clip, create variable for audio clip
+
+        if (_tripleShotEnabled == true)
+        {
+            _fireRate = 0.1f;
+            _tripleShotOffset = new Vector3(transform.position.x + 0.25f, transform.position.y + 0.5f, transform.position.z);
+            Instantiate(_tipleShotPrefab, _tripleShotOffset, Quaternion.identity);
             _laserAudioSource.Play();
+        }
+        else if (_missilesEnabled == true)
+        {
+            _fireRate = 1f;
+            Instantiate(_missilesPrefab, transform.position, Quaternion.identity);
+            _missileAudioSource.Play();
+           
+        }
+        else
+        {
+            _fireRate = 0.2f;
+            Instantiate(_laserPrefab, _laserOffset, Quaternion.identity);
+            _laserAudioSource.Play();
+            
+        }
+        _uiManager.UpdateAmmo(_ammo);
+        
+
 
 
     }
 
     public void Damage()
     {
+        
         //if shield is active, do nothing, deactivate shields
-        if(_shieldsEnabled == true)
+        if (_shieldPower > 0)
         {
-            _shieldsEnabled = false;
-            _shieldsVisualizer.SetActive(false);
+            _shieldPower--;
+            switch (_shieldPower)
+            {
+                case 3:
+                    _fullShieldsVisualizer.gameObject.SetActive(true);
+                    _medShieldsVisualizer.gameObject.SetActive(false);
+                    _lowShieldsVisualizer.gameObject.SetActive(false);
+                    break;
+
+                case 2:
+                    _fullShieldsVisualizer.gameObject.SetActive(false);
+                    _medShieldsVisualizer.gameObject.SetActive(true);
+                    break;
+
+                case 1:
+                    _medShieldsVisualizer.gameObject.SetActive(false);
+                    _lowShieldsVisualizer.gameObject.SetActive(true);
+                    break;
+                case 0:
+                    _fullShieldsVisualizer.gameObject.SetActive(false);
+                    _medShieldsVisualizer.gameObject.SetActive(false);
+                    _lowShieldsVisualizer.gameObject.SetActive(false);
+                    break;
+            }
             return;
             
         }
+        StartCoroutine(_cameraControl.Shake(0.5f, 0.25f));
         _lives--;
         _uiManager.UpdateLives(_lives);
+        
 
-        switch(_lives)
+        switch (_lives)
         {
             case 0:
                  ResetGame();
@@ -178,7 +293,7 @@ public class Player : MonoBehaviour
                 break;
 
         }
-
+        
     }
 
     void ResetGame()
@@ -200,8 +315,10 @@ public class Player : MonoBehaviour
 
     public void SpeedUpActive()
     {
-    
+        
         _speed = _speed * _speedUpMultipler;
+        _thrusterPrefab.transform.localScale += _thrusterScale;
+        _thrusterPrefab.transform.position += _thrusterOffset;
         _speedUpEnabled = true;
         
 
@@ -210,30 +327,99 @@ public class Player : MonoBehaviour
 
     public void ShieldsActive()
     {
-        _shieldsEnabled = true;
+        _shieldPower = 3;
+        _fullShieldsVisualizer.gameObject.SetActive(true);
+        _medShieldsVisualizer.gameObject.SetActive(false);
+        _lowShieldsVisualizer.gameObject.SetActive(false);
+    }
+
+    public void AmmoRecharge()
+    {
+        _ammo = _ammo + 15;
+        _uiManager.UpdateAmmo(_ammo);
+    }
+
+    public void Heal()
+    {
+        
+        _lives++;
+        _uiManager.UpdateLives(_lives);
+        switch (_lives)
+        {
+
+            case 1:
+                _leftEngine.SetActive(false);
+                break;
+
+            case 2:
+                _rightEngine.SetActive(false);
+                break;
+            case 3:
+                _leftEngine.SetActive(false);
+                _rightEngine.SetActive(false);
+                break;
+
+        }
        
-        _shieldsVisualizer.SetActive(true);
+    }
+
+    public void MissilesActive()
+    {
+        _missilesEnabled = true;
+
+        StartCoroutine(PowerDownRoutine());
     }
 
     private IEnumerator PowerDownRoutine()
     {
-            yield return new WaitForSeconds(5.0f);
-            _tripleShotEnabled = false;
-            if(_speedUpEnabled)
+            if(_tripleShotEnabled)
             {
-                _speed = _speed / _speedUpMultipler;
-                _speedUpEnabled = false;    
+                yield return new WaitForSeconds(5.0f);
+                _tripleShotEnabled = false;
             }
             
+            if(_missilesEnabled)
+            {
+                yield return new WaitForSeconds(5.0f);
+                _missilesEnabled = false;
+            }
+            
+            else if (_speedUpEnabled)
+            {
            
+
+            yield return new WaitForSeconds(_speedUpDuration);            
+                
+                _speed = _speed / _speedUpMultipler;
+                _thrusterPrefab.transform.localScale -= _thrusterScale;
+                _thrusterPrefab.transform.position -= _thrusterOffset;
+                
+                _speedUpEnabled = false;
+        }
+
+
     }
 
     //method to add 10  to score, communicate with UI to update score
     public void ScoreCount(int points)
     {
+        
         _score = _score + points;
         _uiManager.UpdateScore(_score);
 
     }
+
+    private void ThrustersTimerDown(float _thrusterAmount)
+    {
+        //_thrusterAmount = 100f;
+
+        if (_speedUpEnabled)
+        {
+            _thrustersTime = _speedUpDuration;     
+        }
+        
+    }
+
+   
 
 }
