@@ -34,6 +34,12 @@ public class RedEnemy : MonoBehaviour
 
     private EnemyWaveManager _enemyWaveManager;
 
+    [SerializeField]
+    private GameObject _bigExplosionPrefab;
+
+    [SerializeField]
+    private GameObject _chargePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +69,7 @@ public class RedEnemy : MonoBehaviour
             RotateTowardsPlayer();
         }
        
-        if (Time.time > _canFire && transform.position.y < _player.transform.position.y)
+        if (Time.time > _canFire && transform.position.y < _player.transform.position.y - 1)
         {
             Fire();
             
@@ -78,6 +84,7 @@ public class RedEnemy : MonoBehaviour
 
        transform.position = new Vector3 (transform.position.x, transform.position.y + _enemySpeed * Time.deltaTime ,transform.position.z);
         _laserBeam.SetActive(false);
+        _chargePrefab.SetActive(true);
         if (transform.position.y < -4.2f)
         {
             float randomX = Random.Range(-9, 9);
@@ -97,7 +104,9 @@ public class RedEnemy : MonoBehaviour
         _firing = true;
         _fireRate = Random.Range(5f, 7f);
         _canFire = Time.time + _fireRate;
-        _laserBeam.SetActive(true);     
+        _laserBeam.SetActive(true);
+        _chargePrefab.SetActive(false);
+
     }
 
     private void RotateTowardsPlayer()
@@ -143,7 +152,7 @@ public class RedEnemy : MonoBehaviour
         {
 
             DestroyRedEnemy();
-            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            Instantiate(_bigExplosionPrefab, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(other.gameObject);
 

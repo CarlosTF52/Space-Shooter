@@ -344,10 +344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWave: 0
-  _maxWaves: 1
+  _maxWaves: 5
   _spawnQty: 0
   _spawnCount: 0
-  _maxEnemies: 01000000
+  _maxEnemies: 050000000a0000000f0000001400000019000000
   _player: {fileID: 0}
 --- !u!1 &166071352
 GameObject:
@@ -975,9 +975,9 @@ RectTransform:
   m_Father: {fileID: 243213562}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: -178}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 97, y: 48}
   m_SizeDelta: {x: 145, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564668875
@@ -1868,8 +1868,8 @@ MonoBehaviour:
     type: 3}
   _enemyContainer: {fileID: 473844141}
   _initialEnemyWaitTime: 3
-  _enemySpawnWaitTime: 1.25
-  _initialPowerupWaitTime: 2
+  _enemySpawnWaitTime: 1
+  _initialPowerupWaitTime: 1.25
   _powerupRange: 5
   _enemySpawnRangeX: {x: -9, y: 9}
   _enemySpawnY: 5.55
@@ -2060,6 +2060,8 @@ MonoBehaviour:
   _powerup: {fileID: 0}
   _bossPresent: 0
   _bossPrefab: {fileID: 388934854196665132, guid: 410e9a99a8ae695438a790e7658732ef,
+    type: 3}
+  _playerExplosion: {fileID: 5389617376813125773, guid: 35132c518724d684dbb3caf30c5bd34c,
     type: 3}
 --- !u!212 &1422716286
 SpriteRenderer:
@@ -2415,7 +2417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -119.8, y: -30.45}
+  m_AnchoredPosition: {x: -119, y: -29}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423995697
@@ -2903,9 +2905,9 @@ RectTransform:
   m_Father: {fileID: 243213562}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -117.8, y: 387.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -119, y: -73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799043383
@@ -3013,9 +3015,9 @@ RectTransform:
   m_Father: {fileID: 243213562}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303, y: -178}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 97, y: 48}
   m_SizeDelta: {x: 150, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932875241

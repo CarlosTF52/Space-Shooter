@@ -15,7 +15,7 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(_isEnemyLaser == false)
+      if(_isEnemyLaser == false && transform.tag != "Missiles")
       {
         MoveUp();
         transform.gameObject.tag = "Laser";
@@ -27,9 +27,10 @@ public class Laser : MonoBehaviour
         transform.gameObject.tag = "EnemyLaser";
             
       }
-      
-
-
+        else
+        {
+            MoveUp();
+        }
     }
 
     void MoveUp()

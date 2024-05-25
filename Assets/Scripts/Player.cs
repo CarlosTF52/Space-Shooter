@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private float _rotationOffset;
 
     private float _speedUpMultipler = 2;
-    
+
     private float _speedDownSubtract = 2;
 
     [SerializeField]
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private Vector3 _laserOffset;
 
     private Vector3 _tripleShotOffset;
-   
+
 
     [SerializeField]
     private float _fireRate = 0.5f;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool _speedUpEnabled;
 
-    [SerializeField] 
+    [SerializeField]
     private bool _speedDownEnabled;
 
     [SerializeField]
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speedUpDuration;
 
-    [SerializeField] 
+    [SerializeField]
     private float _speedDownDuration;
 
     [SerializeField]
@@ -123,6 +123,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject _bossPrefab;
+
+    [SerializeField]
+    private GameObject _playerExplosion;
 
     
 
@@ -367,6 +370,7 @@ public class Player : MonoBehaviour
             {
                 case 0:
                     ResetGame();
+                    Instantiate(_playerExplosion, transform.position, Quaternion.identity);
                     break;
 
                 case 1:
