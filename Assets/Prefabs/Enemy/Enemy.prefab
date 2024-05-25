@@ -54,6 +54,7 @@ MonoBehaviour:
     type: 3}
   _bigExplosionPrefab: {fileID: 6284597726568847360, guid: 02761f65e32157a45bcda8fbc364d1f0,
     type: 3}
+  _randomMove: 0
 --- !u!212 &2703626485005694830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4438221612633149109}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

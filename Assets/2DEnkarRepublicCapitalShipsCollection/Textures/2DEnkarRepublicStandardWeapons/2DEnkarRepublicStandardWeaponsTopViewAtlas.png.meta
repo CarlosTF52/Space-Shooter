@@ -1,0 +1,368 @@
+fileFormatVersion: 2
+guid: a7170c96b1f55fe4684a081bd97598b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_0
+  - first:
+      213: 21300002
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_1
+  - first:
+      213: 21300004
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_2
+  - first:
+      213: 21300006
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_3
+  - first:
+      213: 21300008
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_4
+  - first:
+      213: 21300010
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_5
+  - first:
+      213: 21300012
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_6
+  - first:
+      213: 21300014
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_7
+  - first:
+      213: 21300016
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_8
+  - first:
+      213: 21300018
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_9
+  - first:
+      213: 21300020
+    second: 2DEnkarRepublicStandardWeaponsTopViewAtlas_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 377
+        width: 220
+        height: 443
+      alignment: 9
+      pivot: {x: 0.4969748, y: 0.3467476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2bebb5d6b8fad4983c96d563c65538
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 348
+        width: 265
+        height: 664
+      alignment: 9
+      pivot: {x: 0.49916682, y: 0.08003722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70e336a01166f3499a33c7374ee8d88
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 410
+        width: 242
+        height: 473
+      alignment: 9
+      pivot: {x: 0.49449953, y: 0.3255098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfdcd2d6dba2e4418ca03dbbe7afc78
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 36
+        width: 113
+        height: 281
+      alignment: 9
+      pivot: {x: 0.4958272, y: 0.32884136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f8c990eeccc3240b0efdf8b88d67d5
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 31
+        width: 115
+        height: 214
+      alignment: 9
+      pivot: {x: 0.49179953, y: 0.34576285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2476746a49d644f8ad311dd96cc1be
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 18
+        width: 122
+        height: 314
+      alignment: 9
+      pivot: {x: 0.48840508, y: 0.26724076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac38fad7ab44b0b49ae024f85ee34883
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 142
+        width: 54
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5074282, y: 0.28432003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0aa8ca3c61876743beb6cbba0213af3
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 146
+        width: 63
+        height: 89
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34226817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22134975415f940429c7b07556d3013a
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 222
+        width: 172
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bbb0c65367237a469a8ae0826aec22e
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 10
+        width: 116
+        height: 122
+      alignment: 9
+      pivot: {x: 0.5040646, y: 0.27969718}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f60d017a456cc242bc3be7ab97e64cf
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsTopViewAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 9
+        width: 224
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82967a73af1c7094e899fbc975249eeb
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a3aba53e4269b0d41aca35e6af2ff244
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,6 +8,10 @@ TagManager:
   - Laser
   - Missiles
   - BigExplosion
+  - Blade
+  - PowerUp
+  - BossLaser
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - 
   - 
   - Post Processing
-  - 
+  - Player
   - 
   - 
   - 

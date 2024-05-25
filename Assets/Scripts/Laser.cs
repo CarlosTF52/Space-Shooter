@@ -18,12 +18,17 @@ public class Laser : MonoBehaviour
       if(_isEnemyLaser == false)
       {
         MoveUp();
+        transform.gameObject.tag = "Laser";
+
       }
-      else
+      else if(_isEnemyLaser) 
       {
         MoveDown();
+        transform.gameObject.tag = "EnemyLaser";
+            
       }
-        
+      
+
 
     }
 
@@ -65,8 +70,13 @@ public class Laser : MonoBehaviour
         _isEnemyLaser = true;
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        
+
         if (other.tag == "Player" && _isEnemyLaser == true)
         {
             Player player = other.GetComponent<Player>();

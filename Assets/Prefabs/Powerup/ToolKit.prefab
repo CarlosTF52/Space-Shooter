@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 177011604382381207}
   m_Layer: 0
   m_Name: ToolKit
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,5 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da82929e4f21ae94e855ac2019149194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _powerupSpeed: 3
   _powerupID: 4
   _audioClip: {fileID: 8300000, guid: cc89a5a286403234c965b0a62327289f, type: 3}
+  _player: {fileID: 0}
+  _turningSpeed: 60
+  _rotationModifier: -90

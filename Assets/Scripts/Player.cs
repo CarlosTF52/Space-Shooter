@@ -9,7 +9,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5.0f;
 
+    [SerializeField]
+    private float _rotationSpeed;
+
+    [SerializeField]
+    private float _rotationOffset;
+
     private float _speedUpMultipler = 2;
+    
+    private float _speedDownSubtract = 2;
 
     [SerializeField]
     private GameObject _tipleShotPrefab;
@@ -17,9 +25,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _missilesPrefab;
 
+    [SerializeField]
+    private GameObject _enemyChaserPrefab;
+
     private Vector3 _laserOffset;
+
     private Vector3 _tripleShotOffset;
-    private Vector3 _missilesOffset;
+   
 
     [SerializeField]
     private float _fireRate = 0.5f;
@@ -43,8 +55,13 @@ public class Player : MonoBehaviour
 
     private bool _tripleShotEnabled;
 
+    private bool _enemyChaserEnabled;
+
     [SerializeField]
     private bool _speedUpEnabled;
+
+    [SerializeField] 
+    private bool _speedDownEnabled;
 
     [SerializeField]
     private bool _missilesEnabled;
@@ -89,8 +106,27 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speedUpDuration;
 
+    [SerializeField] 
+    private float _speedDownDuration;
+
     [SerializeField]
     private CameraControl _cameraControl;
+
+    [SerializeField]
+    private bool _tookDamage;
+
+    [SerializeField]
+    private Powerup _powerup;
+
+    [SerializeField]
+    private bool _bossPresent;
+
+    [SerializeField]
+    private GameObject _bossPrefab;
+
+    
+
+
 
 
     void Start()
@@ -126,11 +162,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-
-        if (_lives > 3)
+       
+        if (_tookDamage == true)
         {
-            _lives = 3;
+            StartCoroutine(PlayerHurt());
+            StartCoroutine(TookDamage());
         }
+
+
+        
 
         if(_speedUpEnabled)
         {
@@ -144,11 +184,11 @@ public class Player : MonoBehaviour
            
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && _lives < 1) //should be on game manager
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            } 
-
+        if (Input.GetKey(KeyCode.C))
+        {
+            _powerup = FindObjectOfType<Powerup>();
+            _powerup.MoveTowardsPlayer();
+        }
     }
 
     
@@ -177,17 +217,34 @@ public class Player : MonoBehaviour
             _thrusterPrefab.transform.position -= _thrusterOffset;
         }
 
+        
+
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
         //move player to the bottom if position is greater than 0 in the y position
-        if(transform.position.y >= 0)
+        if (!_bossPresent)
         {
-            transform.position = new Vector3(transform.position.x, 0 ,0);
+            if (transform.position.y >= 0)
+            {
+                transform.position = new Vector3(transform.position.x, 0, 0);
+            }
+            else if (transform.position.y <= -3.8f)
+            {
+                transform.position = new Vector3(transform.position.x, -3.8f, 0);
+            }
         }
-        else if(transform.position.y <= -3.8f)
+
+        else if (_bossPresent)
         {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+            if (transform.position.y >= 6.18)
+            {
+                transform.position = new Vector3(transform.position.x, 0, 0);
+            }
+            else if (transform.position.y <= -3.8f)
+            {
+                transform.position = new Vector3(transform.position.x, -3.8f, 0);
+            }
         }
 
         //teleport player to the other side of the screen if he moves past 12 in x
@@ -201,6 +258,10 @@ public class Player : MonoBehaviour
         }        
     }
 
+    public void AddAmmo()
+    {
+        _ammo = _ammo + 10;
+    }
 
     public void FireLaser()
     {     
@@ -226,6 +287,12 @@ public class Player : MonoBehaviour
             _missileAudioSource.Play();
            
         }
+        else if(_enemyChaserEnabled == true)
+        {
+            _fireRate = 0.3f;
+            Instantiate(_enemyChaserPrefab, transform.position, Quaternion.identity);
+            
+        }
         else
         {
             _fireRate = 0.2f;
@@ -240,60 +307,79 @@ public class Player : MonoBehaviour
 
     }
 
+    public void UnlockPlayerMovement()
+    {
+        _bossPresent = true;
+    }
+
     public void Damage()
     {
-        
-        //if shield is active, do nothing, deactivate shields
-        if (_shieldPower > 0)
-        {
-            _shieldPower--;
-            switch (_shieldPower)
-            {
-                case 3:
-                    _fullShieldsVisualizer.gameObject.SetActive(true);
-                    _medShieldsVisualizer.gameObject.SetActive(false);
-                    _lowShieldsVisualizer.gameObject.SetActive(false);
-                    break;
 
-                case 2:
-                    _fullShieldsVisualizer.gameObject.SetActive(false);
-                    _medShieldsVisualizer.gameObject.SetActive(true);
+            if (_shieldPower > 0)
+            {
+                _shieldPower--;
+                switch (_shieldPower)
+                {
+                    case 3:
+                        _fullShieldsVisualizer.gameObject.SetActive(true);
+                        _medShieldsVisualizer.gameObject.SetActive(false);
+                        _lowShieldsVisualizer.gameObject.SetActive(false);
+                        break;
+
+                    case 2:
+                        _fullShieldsVisualizer.gameObject.SetActive(false);
+                        _medShieldsVisualizer.gameObject.SetActive(true);
+                        break;
+
+                    case 1:
+                        _medShieldsVisualizer.gameObject.SetActive(false);
+                        _lowShieldsVisualizer.gameObject.SetActive(true);
+                        break;
+                    case 0:
+                        _fullShieldsVisualizer.gameObject.SetActive(false);
+                        _medShieldsVisualizer.gameObject.SetActive(false);
+                        _lowShieldsVisualizer.gameObject.SetActive(false);
+                        break;
+                }
+                return;
+
+            }
+
+
+        if (_tookDamage == true)
+        {
+            StartCoroutine(TookDamage());
+        }  
+            
+
+        if (_tookDamage == false)
+        {
+            
+            _cameraControl.ShakeCamera(.5f, 0.25f);
+            _lives--;
+            _uiManager.UpdateLives(_lives);
+            if (_lives < 0)
+            {
+                _lives = 0;
+            }
+
+            switch (_lives)
+            {
+                case 0:
+                    ResetGame();
                     break;
 
                 case 1:
-                    _medShieldsVisualizer.gameObject.SetActive(false);
-                    _lowShieldsVisualizer.gameObject.SetActive(true);
+                    _leftEngine.SetActive(true);
                     break;
-                case 0:
-                    _fullShieldsVisualizer.gameObject.SetActive(false);
-                    _medShieldsVisualizer.gameObject.SetActive(false);
-                    _lowShieldsVisualizer.gameObject.SetActive(false);
+
+                case 2:
+                    _rightEngine.SetActive(true);
                     break;
-            }
-            return;
-            
-        }
-        StartCoroutine(_cameraControl.Shake(0.5f, 0.25f));
-        _lives--;
-        _uiManager.UpdateLives(_lives);
-        
 
-        switch (_lives)
-        {
-            case 0:
-                 ResetGame();
-                 break;
-            
-            case 1:
-                _leftEngine.SetActive(true);
-                break;
-            
-            case 2:
-                _rightEngine.SetActive(true);
-                break;
-
-        }
-        
+            }           
+            _tookDamage = true;
+        }  
     }
 
     void ResetGame()
@@ -309,7 +395,18 @@ public class Player : MonoBehaviour
     public void TripleShotActive()
     {
         _tripleShotEnabled = true;
-        
+        _ammo = _ammo + 5;
+        _uiManager.UpdateAmmo(_ammo);
+
+        StartCoroutine(PowerDownRoutine());
+    }
+
+    public void EnemyChaserActive()
+    {
+        _enemyChaserEnabled = true;
+        _ammo = _ammo + 5;
+        _uiManager.UpdateAmmo(_ammo);
+
         StartCoroutine(PowerDownRoutine());
     }
 
@@ -321,6 +418,16 @@ public class Player : MonoBehaviour
         _thrusterPrefab.transform.position += _thrusterOffset;
         _speedUpEnabled = true;
         
+
+        StartCoroutine(PowerDownRoutine());
+    }
+
+    public void SpeedDownActive()
+    {
+        _speed = _speed - _speedDownSubtract;
+        _thrusterPrefab.transform.localScale -= _thrusterScale;
+        _thrusterPrefab.transform.position -= _thrusterOffset;
+        _speedDownEnabled = true;
 
         StartCoroutine(PowerDownRoutine());
     }
@@ -343,6 +450,10 @@ public class Player : MonoBehaviour
     {
         
         _lives++;
+        if (_lives > 3)
+        {
+            _lives = 3;
+        }
         _uiManager.UpdateLives(_lives);
         switch (_lives)
         {
@@ -366,9 +477,12 @@ public class Player : MonoBehaviour
     public void MissilesActive()
     {
         _missilesEnabled = true;
-
+        _ammo = _ammo + 1;
+        _uiManager.UpdateAmmo(_ammo);
         StartCoroutine(PowerDownRoutine());
     }
+
+
 
     private IEnumerator PowerDownRoutine()
     {
@@ -383,6 +497,12 @@ public class Player : MonoBehaviour
                 yield return new WaitForSeconds(5.0f);
                 _missilesEnabled = false;
             }
+
+            if (_enemyChaserEnabled)
+            {
+                yield return new WaitForSeconds(5.0f);
+                _enemyChaserEnabled = false;
+            }
             
             else if (_speedUpEnabled)
             {
@@ -395,9 +515,46 @@ public class Player : MonoBehaviour
                 _thrusterPrefab.transform.position -= _thrusterOffset;
                 
                 _speedUpEnabled = false;
+            }
+
+            else if (_speedDownEnabled)
+            {
+
+
+            yield return new WaitForSeconds(_speedDownDuration);
+
+            _speed = _speed + _speedDownSubtract;
+            _thrusterPrefab.transform.localScale += _thrusterScale;
+            _thrusterPrefab.transform.position += _thrusterOffset;
+
+            _speedDownEnabled = false;
+            }
+
+
+    }
+
+    private IEnumerator TookDamage()
+    {
+        
+        while (_tookDamage == true)
+        {
+            
+
+            yield return new WaitForSeconds(2.0f);
+            _tookDamage = false;
+               
         }
+    }
 
-
+    private IEnumerator PlayerHurt()
+    {
+        while(_tookDamage == true)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.5f);
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     //method to add 10  to score, communicate with UI to update score

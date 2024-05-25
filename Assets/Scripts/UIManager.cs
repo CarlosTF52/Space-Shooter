@@ -35,6 +35,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private bool _refreshThrusterAmount;
 
+    [SerializeField]
+    private Text _enemyQtyText;
+
 
 
     // Start is called before the first frame update
@@ -46,6 +49,7 @@ public class UIManager : MonoBehaviour
         _restartText.gameObject.SetActive(false);
         _scoreText.text =  "Score: " + 0.0f ;
         _ammoText.text = "Ammo: " + 15;
+        _enemyQtyText.text = "Enemies Left: ";
       
         
     }
@@ -74,6 +78,11 @@ public class UIManager : MonoBehaviour
     public void UpdateAmmo(int playerammo)
     {
         _ammoText.text = "Ammo: " + playerammo.ToString();
+    }
+
+    public void UpdateEnemyQuantity(int enemyQty)
+    {
+        _enemyQtyText.text = "Enemies Left: " + enemyQty.ToString();
     }
 
     public void UpdateThrusters(float playerthrusters)

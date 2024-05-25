@@ -1,0 +1,1040 @@
+fileFormatVersion: 2
+guid: 72271c81895e120478c6cfae58fd5c6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_0
+  - first:
+      213: 21300002
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_1
+  - first:
+      213: 21300004
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_2
+  - first:
+      213: 21300006
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_3
+  - first:
+      213: 21300008
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_4
+  - first:
+      213: 21300010
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_5
+  - first:
+      213: 21300012
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_6
+  - first:
+      213: 21300014
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_7
+  - first:
+      213: 21300016
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_8
+  - first:
+      213: 21300018
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_9
+  - first:
+      213: 21300020
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_10
+  - first:
+      213: 21300022
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_11
+  - first:
+      213: 21300024
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_12
+  - first:
+      213: 21300026
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_13
+  - first:
+      213: 21300028
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_14
+  - first:
+      213: 21300030
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_15
+  - first:
+      213: 21300032
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_16
+  - first:
+      213: 21300034
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_17
+  - first:
+      213: 21300036
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_18
+  - first:
+      213: 21300038
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_19
+  - first:
+      213: 21300040
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_20
+  - first:
+      213: 21300042
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_21
+  - first:
+      213: 21300044
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_22
+  - first:
+      213: 21300046
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_23
+  - first:
+      213: 21300048
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_24
+  - first:
+      213: 21300050
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_25
+  - first:
+      213: 21300052
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_26
+  - first:
+      213: 21300054
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_27
+  - first:
+      213: 21300056
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_28
+  - first:
+      213: 21300058
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_29
+  - first:
+      213: 21300060
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_30
+  - first:
+      213: 21300062
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_31
+  - first:
+      213: 21300064
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_32
+  - first:
+      213: 21300066
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_33
+  - first:
+      213: 21300068
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_34
+  - first:
+      213: 21300070
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_35
+  - first:
+      213: 21300072
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_36
+  - first:
+      213: 21300074
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_37
+  - first:
+      213: 21300076
+    second: 2DEnkarRepublicStandardWeaponsSideViewAtlas_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 927
+        width: 341
+        height: 78
+      alignment: 9
+      pivot: {x: 0.07651815, y: 0.5316467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82ecc08ce4229b4daa2400bc4d71f88
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 919
+        width: 365
+        height: 56
+      alignment: 9
+      pivot: {x: 0.06613611, y: 0.47852325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf517d67c1475cc4fa7b8cee697e527b
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 922
+        width: 265
+        height: 58
+      alignment: 9
+      pivot: {x: 0.067317635, y: 0.43087873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c35bd0a622b0641b2108555a3f9766
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 809
+        width: 261
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12002a2d5c4b3e4d98ccaed5c6f40c2
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 809
+        width: 299
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68d5a92933a83e40b20fe2a89e76161
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 811
+        width: 231
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c30f628a1e12f46a7599daacbfa336
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 692
+        width: 341
+        height: 78
+      alignment: 9
+      pivot: {x: 0.91854775, y: 0.52056104}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbebb6384af2cfc45aee48e55b18e4b4
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 684
+        width: 365
+        height: 57
+      alignment: 9
+      pivot: {x: 0.9382575, y: 0.45779902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3c8ed953f05c14f996cb64baa9ed8f
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 687
+        width: 264
+        height: 55
+      alignment: 9
+      pivot: {x: 0.93432176, y: 0.47813275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e4cd7c7b5659049ba2f67dd4868143
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 572
+        width: 261
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd661c2705dc28459ec876b65aa8c23
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 572
+        width: 299
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0659ff33f516a24e9b1b7cab385d213
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 574
+        width: 231
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba506eaceacfa2941b64f0c600aacac2
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 491
+        width: 124
+        height: 33
+      alignment: 9
+      pivot: {x: 0.8794305, y: 0.4989023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6c43d2659d8ae45a49660466b696de
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 490
+        width: 179
+        height: 34
+      alignment: 9
+      pivot: {x: 0.8739104, y: 0.48364887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a35ab95cee8fe42895401ddf9feec5
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 491
+        width: 221
+        height: 45
+      alignment: 9
+      pivot: {x: 0.9196297, y: 0.4175639}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e50fafa09c19d8459115b7c6db55f2d
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 491
+        width: 124
+        height: 33
+      alignment: 9
+      pivot: {x: 0.12011128, y: 0.48945016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82c3666571aab247a05434a6d358c7a
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 490
+        width: 178
+        height: 34
+      alignment: 9
+      pivot: {x: 0.13999991, y: 0.47929025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25105b8077724ff408f2c2190b0efa25
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 429
+        width: 145
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302cc0075737c4642a45788142b39438
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 429
+        width: 119
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9828b9a758e8b564f89ce9d95a899235
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 429
+        width: 128
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99506f98146a5654898abef223c3bb7e
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 429
+        width: 146
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3d4b8a938a3d84ca9f4b36cb542584
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 428
+        width: 119
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8130612e056649b4b9ef31e20895d80d
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 384
+        width: 83
+        height: 17
+      alignment: 9
+      pivot: {x: 0.90404594, y: 0.30686322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78808ed9c7b92e448a60b18f6d0c3908
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 389
+        width: 101
+        height: 20
+      alignment: 9
+      pivot: {x: 0.87847656, y: 0.45309448}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ebdcdc372d0124f959b23ca325bdd2
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 385
+        width: 83
+        height: 18
+      alignment: 9
+      pivot: {x: 0.12986001, y: 0.2785102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffb3a8054887a44aa58c99e09d07153
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 389
+        width: 101
+        height: 20
+      alignment: 9
+      pivot: {x: 0.12616722, y: 0.45309448}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3becc84cfe52a4ea09dfdae09875b6
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 347
+        width: 221
+        height: 45
+      alignment: 9
+      pivot: {x: 0.08256952, y: 0.45135295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6679c9a6e091c1d4da9c9a72d9b307ac
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 343
+        width: 55
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1341c8f9a5830429337a5133ad0360
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 344
+        width: 59
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1cad8ccf695a7c4387434322108622b
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 370
+        width: 57
+        height: 10
+      alignment: 9
+      pivot: {x: 0.88263154, y: 0.49999696}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967a8706f3f63ae4f9f7ae21a85a6ae5
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 345
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811aeb266dda140499508b170856b042
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 344
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1e0c198493ab94685d6dfddddfc48c
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 369
+        width: 56
+        height: 10
+      alignment: 9
+      pivot: {x: 0.09652383, y: 0.43354493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d121d2ba9f098624097bf0739e416b98
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 339
+        width: 52
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e34b5e83401fab4f9352f38df49cdbb
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 338
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a28d9de569d99143be86b8a851471a2
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 286
+        width: 129
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067edd9bea890d445962fdc4889bbc1e
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 233
+        width: 148
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7404f8a8a211a044b3b04c84b9f86a0
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 233
+        width: 146
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343e1785c4b9425479cc9f6ebea2c349
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2DEnkarRepublicStandardWeaponsSideViewAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 239
+        width: 190
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04494e07ab9e7cd4a8978b1438d8ef94
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c34cc81d6e41f7446a5c116700b6fda6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
