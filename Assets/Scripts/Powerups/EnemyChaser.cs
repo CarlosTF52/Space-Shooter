@@ -16,7 +16,8 @@ public class EnemyChaser : MonoBehaviour
     [SerializeField]
     private GameObject[] _enemy;
 
-    private bool _chasing;
+    [SerializeField]
+    private bool[] _chasing;
 
 
     void Start()
@@ -35,33 +36,33 @@ public class EnemyChaser : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, _senseDistance, transform.forward);
 
-        if (!_chasing)
+        if (!_chasing[0] || !_chasing[1] || !_chasing[2])
         {
             transform.Translate(Vector3.up * _speed * Time.deltaTime);
         }
-    
 
-        if (hit.collider != null && hit.collider.tag == "Enemy")
+
+        if (hit.collider != null && hit.collider.tag == "Enemy" && !_chasing[1] && !_chasing[2])
         {
             _enemy[0] = hit.collider.gameObject;
-            transform.position = Vector3.MoveTowards(transform.position, _enemy[0].transform.position, 0.1f);
-            _chasing = true;
+            transform.position = Vector3.MoveTowards(transform.position, _enemy[0].transform.position, 0.5f);
+            _chasing[0] = true;
 
 
         }
 
-        else if (hit.collider != null && hit.collider.tag == "Enemy")
+        else if (hit.collider != null && hit.collider.tag == "Enemy" && !_chasing[0] && !_chasing[2])
         {
             _enemy[1] = hit.collider.gameObject;
-            transform.position = Vector3.MoveTowards(transform.position, _enemy[1].transform.position, 0.03f);
-            _chasing = true;
+            transform.position = Vector3.MoveTowards(transform.position, _enemy[1].transform.position, 0.5f);
+            _chasing[1] = true;
         }
 
-        else if (hit.collider != null && hit.collider.tag == "Enemy")
+        else if (hit.collider != null && hit.collider.tag == "Enemy" && !_chasing[0] && !_chasing[1])
         {
-            _enemy[3] = hit.collider.gameObject;
-            transform.position = Vector3.MoveTowards(transform.position, _enemy[3].transform.position, 0.03f);
-            _chasing = true;
+            _enemy[2] = hit.collider.gameObject;
+            transform.position = Vector3.MoveTowards(transform.position, _enemy[3].transform.position, 0.5f);
+            _chasing[2] = true;
         }
 
         if (transform.position.y > 8f)

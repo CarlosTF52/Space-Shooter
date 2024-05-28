@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BossTurret : MonoBehaviour
@@ -44,6 +45,8 @@ public class BossTurret : MonoBehaviour
     [SerializeField]
     private int _turretLives;
 
+    private bool _inPosition;
+
 
 
     // Start is called before the first frame update
@@ -59,7 +62,7 @@ public class BossTurret : MonoBehaviour
     {
         RotateTowardsPlayer();
 
-        if (Time.time > _canFire)
+        if (Time.time > _canFire && _inPosition)
         {
             ChargeBeam();
         }
@@ -74,6 +77,11 @@ public class BossTurret : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _turningSpeed);
         }
+    }
+
+    public void InPosition()
+    {
+        _inPosition = true;
     }
 
     private void ChargeBeam()
@@ -103,30 +111,41 @@ public class BossTurret : MonoBehaviour
 
     private void DamageTurret()
     {
-        _turretLives--;
-        if (_turretLives < 0)
+        if (!_inPosition)
         {
-            _turretLives = 0;
+            return;
         }
-        switch (_turretLives)
+        else
         {
-            case 0:
-                _destroyed.SetActive(true);
-                _turret.SetActive(false);
-                _explosion.SetActive(true);
-                break;
+            _turretLives--;
+            if (_turretLives < 0)
+            {
+                _turretLives = 0;
+            }
+            switch (_turretLives)
+            {
+                case 0:
+                    _destroyed.SetActive(true);
+                    _turret.SetActive(false);
+                    _explosion.SetActive(true);
+                    break;
 
-            case 1:
-                _damaged2.SetActive(true);
-               
-                break;
+                case 1:
+                    _damaged2.SetActive(true);
+                    _fireRate = 2.5f;
+                    _canFire = 2.5F;
+                    break;
 
-            case 2:
-                _damaged1.SetActive(true);
-                _fireRate = 2.5f;
-                break;
+                case 2:
+                    _damaged1.SetActive(true);
+                    _fireRate = 2.5f;
+                    _canFire = 2.5F;
+                    break;
 
+            }
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

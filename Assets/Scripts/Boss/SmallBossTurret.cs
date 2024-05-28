@@ -40,6 +40,8 @@ public class SmallBossTurret : MonoBehaviour
 
     private Quaternion _laserRotation;
 
+    private bool _inPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +52,10 @@ public class SmallBossTurret : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
-        Fire();
+        if (_inPosition)
+        {
+            Fire();
+        }      
     }
 
     private void RotateTowardsPlayer()
@@ -86,27 +91,42 @@ public class SmallBossTurret : MonoBehaviour
         }
     }
 
+    public void InPosition()
+    {
+        _inPosition = true;
+    }
+
     private void DamageTurret()
     {
-        _turretLives--;
-        if (_turretLives < 0)
+
+        if(!_inPosition) 
         {
-            _turretLives = 0;
+            return;
         }
-        switch (_turretLives)
+
+        else
         {
-            case 0:
-                _destroyed.SetActive(true);
-                _turret.SetActive(false);
-                _explosion.SetActive(true);
-                break;
+            _turretLives--;
+            if (_turretLives < 0)
+            {
+                _turretLives = 0;
+            }
+            switch (_turretLives)
+            {
+                case 0:
+                    _destroyed.SetActive(true);
+                    _turret.SetActive(false);
+                    _explosion.SetActive(true);
+                    break;
 
-            case 1:
-                _damaged.SetActive(true);
+                case 1:
+                    _damaged.SetActive(true);
 
-                break;
+                    break;
 
+            }
         }
+        
     }
 
 }

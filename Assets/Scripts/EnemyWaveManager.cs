@@ -79,7 +79,7 @@ public class EnemyWaveManager : MonoBehaviour
         {
             _spawnQty = 0;
             _spawnManager.StopSpawningEnemies();
-            _spawnManager.StopSpawningPowerups();
+            //_spawnManager.StopSpawningPowerups();
         }
     }
 

@@ -240,7 +240,8 @@ public class Player : MonoBehaviour
 
         else if (_bossPresent)
         {
-            if (transform.position.y >= 6.18)
+            _spawnManager.StopSpawningPowerups();
+            if (transform.position.y >= 7.18)
             {
                 transform.position = new Vector3(transform.position.x, 0, 0);
             }
@@ -292,7 +293,7 @@ public class Player : MonoBehaviour
         }
         else if(_enemyChaserEnabled == true)
         {
-            _fireRate = 0.3f;
+            _fireRate = 0.2f;
             Instantiate(_enemyChaserPrefab, transform.position, Quaternion.identity);
             
         }
@@ -313,6 +314,7 @@ public class Player : MonoBehaviour
     public void UnlockPlayerMovement()
     {
         _bossPresent = true;
+        
     }
 
     public void Damage()
