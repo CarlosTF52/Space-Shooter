@@ -69,7 +69,7 @@ public class RedEnemy : MonoBehaviour
             RotateTowardsPlayer();
         }
        
-        if (Time.time > _canFire && transform.position.y < _player.transform.position.y - 1)
+        if (Time.time > _canFire && transform.position.y < _player.transform.position.y - 0.25f)
         {
             Fire();
             

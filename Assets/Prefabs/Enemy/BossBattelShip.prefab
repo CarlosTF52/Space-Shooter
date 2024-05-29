@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _turningSpeed: 2.5
+  _turningSpeed: 1.25
   _rotationModifier: 90
   _fireRate: 10
   _laserBeam: {fileID: 211291396644116776}

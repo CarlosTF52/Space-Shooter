@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int _randomMove;
     private float _fireRate = 3.0f;
-    private float _canFire = -1;
+    private float _canFire = 2;
 
     private EnemyWaveManager _enemyWaveManager;
 
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         if(transform.position.y < -4.2f)
         {
             float randomX = Random.Range(-9, 9);
-            transform.position = new Vector3(randomX, 5.55f, 0);
+            transform.position = new Vector3(randomX, 6.55f, 0);
             _randomMove = Random.Range(0, 3);
            
            
@@ -80,14 +80,14 @@ public class Enemy : MonoBehaviour
         if (transform.position.x > 10)
         {
             float randomX = Random.Range(-9, 9);
-            transform.position = new Vector3(randomX, 5.55f, 0);
+            transform.position = new Vector3(randomX, 6.55f, 0);
             _randomMove = Random.Range(0, 3);
         }
 
         if (transform.position.x < -10)
         {
             float randomX = Random.Range(-9, 9);
-            transform.position = new Vector3(randomX, 5.55f, 0);
+            transform.position = new Vector3(randomX, 6.55f, 0);
             _randomMove = Random.Range(0, 3);
         }
 
@@ -101,14 +101,12 @@ public class Enemy : MonoBehaviour
         {
             _player.ScoreCount(10);
         }
-        Destroy(this.gameObject, 2.8f);
+        Destroy(this.gameObject, 1.8f);
         _enemyWaveManager.CountUpdate();
         _animator.SetTrigger("OnEnemyDeath");
         _enemySpeed = 0;
         _enemyExplosionAudioSource.Play();
-        _canFire = 0;
-       
-
+        _fireRate = 0;
     }
 
     private void Fire()

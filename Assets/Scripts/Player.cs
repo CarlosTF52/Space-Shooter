@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
 
     private bool _tripleShotEnabled;
 
+    [SerializeField]
     private bool _enemyChaserEnabled;
 
     [SerializeField]
@@ -127,7 +130,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _playerExplosion;
 
-    
+    private bool _outOfFuel;
 
 
 
@@ -172,10 +175,23 @@ public class Player : MonoBehaviour
             StartCoroutine(TookDamage());
         }
 
+        if (!_outOfFuel)
+        {
+            Thrusters();
 
+        }
+        else if (_outOfFuel && _speedUpEnabled)
+        {
+            _speed = _speed / _speedUpMultipler;
+
+            _thrusterPrefab.transform.localScale -= _thrusterScale;
+            _thrusterPrefab.transform.position -= _thrusterOffset;
+            _speedUpEnabled = false;
+        }
         
 
-        if(_speedUpEnabled)
+
+        if (_speedUpEnabled)
         {
             ThrustersTimerDown(_thrustersTime);
             _uiManager.UpdateThrusters(_thrustersTime);
@@ -203,25 +219,7 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            _speed = _speed * _speedUpMultipler;
-            
-            _thrusterPrefab.transform.localScale += _thrusterScale;
-            _thrusterPrefab.transform.position += _thrusterOffset;
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _speed = _speed / _speedUpMultipler;
-           
-            _thrusterPrefab.transform.localScale -= _thrusterScale;
-            _thrusterPrefab.transform.position -= _thrusterOffset;
-        }
-
-        
-
+          
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
@@ -260,6 +258,37 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(9, transform.position.y, 0);
         }        
+    }
+
+    private void Thrusters()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _speed = _speed * _speedUpMultipler;
+
+            _thrusterPrefab.transform.localScale += _thrusterScale;
+            _thrusterPrefab.transform.position += _thrusterOffset;
+            _speedUpEnabled = true;
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _speed = _speed / _speedUpMultipler;
+
+            _thrusterPrefab.transform.localScale -= _thrusterScale;
+            _thrusterPrefab.transform.position -= _thrusterOffset;
+            _speedUpEnabled = false;
+        }
+    }
+
+    public void OutOfFuel()
+    {
+        _outOfFuel = true;
+    }
+
+    public void RefreshFuel()
+    {
+        _outOfFuel = false;
     }
 
     public void AddAmmo()
@@ -320,9 +349,21 @@ public class Player : MonoBehaviour
     public void Damage()
     {
 
+            
+
+
+        if (_tookDamage == true)
+        {
+            StartCoroutine(TookDamage());
+        }  
+            
+
+        if (_tookDamage == false)
+        {
             if (_shieldPower > 0)
             {
                 _shieldPower--;
+                _tookDamage = true;
                 switch (_shieldPower)
                 {
                     case 3:
@@ -350,16 +391,6 @@ public class Player : MonoBehaviour
 
             }
 
-
-        if (_tookDamage == true)
-        {
-            StartCoroutine(TookDamage());
-        }  
-            
-
-        if (_tookDamage == false)
-        {
-            
             _cameraControl.ShakeCamera(.5f, 0.25f);
             _lives--;
             _uiManager.UpdateLives(_lives);
@@ -416,17 +447,7 @@ public class Player : MonoBehaviour
         StartCoroutine(PowerDownRoutine());
     }
 
-    public void SpeedUpActive()
-    {
-        
-        _speed = _speed * _speedUpMultipler;
-        _thrusterPrefab.transform.localScale += _thrusterScale;
-        _thrusterPrefab.transform.position += _thrusterOffset;
-        _speedUpEnabled = true;
-        
-
-        StartCoroutine(PowerDownRoutine());
-    }
+ 
 
     public void SpeedDownActive()
     {
@@ -510,18 +531,7 @@ public class Player : MonoBehaviour
                 _enemyChaserEnabled = false;
             }
             
-            else if (_speedUpEnabled)
-            {
-           
-
-            yield return new WaitForSeconds(_speedUpDuration);            
-                
-                _speed = _speed / _speedUpMultipler;
-                _thrusterPrefab.transform.localScale -= _thrusterScale;
-                _thrusterPrefab.transform.position -= _thrusterOffset;
-                
-                _speedUpEnabled = false;
-            }
+            
 
             else if (_speedDownEnabled)
             {
@@ -563,7 +573,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //method to add 10  to score, communicate with UI to update score
+    
     public void ScoreCount(int points)
     {
         

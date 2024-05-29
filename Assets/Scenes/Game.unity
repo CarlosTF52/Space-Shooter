@@ -1853,8 +1853,8 @@ MonoBehaviour:
   - {fileID: 481153920272113793, guid: 1ff0504943c1e4b42b9a6cfc68796947, type: 3}
   - {fileID: 481153920272113793, guid: 1ff0504943c1e4b42b9a6cfc68796947, type: 3}
   - {fileID: 481153920272113793, guid: 1ff0504943c1e4b42b9a6cfc68796947, type: 3}
-  - {fileID: 481153920272113793, guid: 1ff0504943c1e4b42b9a6cfc68796947, type: 3}
-  - {fileID: 481153920272113793, guid: 1ff0504943c1e4b42b9a6cfc68796947, type: 3}
+  - {fileID: 6650674595676229125, guid: 6a8407ff7bc74d8458632a005938347d, type: 3}
+  - {fileID: 8019161904591498670, guid: b089325a8179b3347b2a8da9627e859b, type: 3}
   - {fileID: 8019161904591498670, guid: b089325a8179b3347b2a8da9627e859b, type: 3}
   - {fileID: 8019161904591498670, guid: b089325a8179b3347b2a8da9627e859b, type: 3}
   - {fileID: 1523417037669886030, guid: 43f2747beafe7ad43baeaf3416db529f, type: 3}
@@ -1868,12 +1868,12 @@ MonoBehaviour:
     type: 3}
   _enemyContainer: {fileID: 473844141}
   _initialEnemyWaitTime: 3
-  _enemySpawnWaitTime: 1
+  _enemySpawnWaitTime: 1.5
   _initialPowerupWaitTime: 1.25
   _powerupRange: 5
   _enemySpawnRangeX: {x: -9, y: 9}
-  _enemySpawnY: 5.55
-  _powerupSpawnRangeX: {x: -8, y: 8}
+  _enemySpawnY: 6.55
+  _powerupSpawnRangeX: {x: 6.55, y: 6.55}
   _powerupSpawnY: 7
   _powerupWaitTimeRange: {x: 3, y: 8}
   _wavesBeforeBoss: 3
@@ -2042,6 +2042,7 @@ MonoBehaviour:
   _fullShieldsVisualizer: {fileID: 1429516491}
   _medShieldsVisualizer: {fileID: 24853852}
   _lowShieldsVisualizer: {fileID: 636810953}
+  _enemyChaserEnabled: 0
   _speedUpEnabled: 0
   _speedDownEnabled: 0
   _missilesEnabled: 0
@@ -2121,7 +2122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422716284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -1.43, z: 0}
+  m_LocalPosition: {x: 0.35, y: -0.11, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1429516493}

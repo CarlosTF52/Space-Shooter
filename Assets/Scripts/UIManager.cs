@@ -38,13 +38,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text _enemyQtyText;
 
+    private Player _player;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-     
+
         //assign text component to handle
+        _player = GameObject.Find("Player").GetComponent<Player>();
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
         _scoreText.text =  "Score: " + 0.0f ;
@@ -94,22 +97,21 @@ public class UIManager : MonoBehaviour
         if (_thrusterAmount < 0 && _refreshThrusterAmount == false)
         {
             _thrusterAmount = 0;
-            _refreshThrusterAmount = true;
             
+            _player.OutOfFuel();
 
-        }
-        
-
-        if (_refreshThrusterAmount == true)
-        {
-            _thrusterAmount = 25f;
-            _thrustersbar.fillAmount = _thrusterAmount;
-            _refreshThrusterAmount = false;
-           
         }
 
         _thrustersbar.fillAmount = _thrusterAmount / _thrusterMaxAmount;
 
+    }
+
+    public void RefreshThrusters()
+    {
+        _thrusterAmount = 25f;
+        _thrustersbar.fillAmount = _thrusterAmount;
+        _refreshThrusterAmount = false;
+        _player.RefreshFuel();
     }
 
     IEnumerator GameOverFlicker()

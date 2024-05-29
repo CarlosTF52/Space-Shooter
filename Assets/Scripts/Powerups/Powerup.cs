@@ -22,11 +22,12 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private float _rotationModifier;
 
-
+    private UIManager _uiManager;
 
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
 
@@ -73,7 +74,7 @@ public class Powerup : MonoBehaviour
                                 player.TripleShotActive();
                                 break;
                         case 1:
-                                player.SpeedUpActive();
+                                _uiManager.RefreshThrusters();
                                 break;
                         case 2:
                                 player.ShieldsActive();

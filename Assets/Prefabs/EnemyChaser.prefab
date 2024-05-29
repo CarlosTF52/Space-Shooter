@@ -117,9 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe100e2629f4c44a91b4c026b97fea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _senseDistance: 5
+  _senseDistance: 10
   _speed: 16
-  _detectionDistance: 10
+  _detectionDistance: 20
   _enemy:
   - {fileID: 4438221612633149109, guid: a45da022ae9472b42abc1a4469cf4f96, type: 3}
   - {fileID: 5466024983346922277, guid: 7500ecb14ea2d3c44a7b52e907bfc5f9, type: 3}
